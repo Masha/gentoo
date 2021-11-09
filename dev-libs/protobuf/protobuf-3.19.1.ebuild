@@ -1,7 +1,7 @@
 # Copyright 2008-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=7
 
 inherit autotools elisp-common flag-o-matic multilib-minimal toolchain-funcs
 
@@ -10,19 +10,17 @@ if [[ "${PV}" == "9999" ]]; then
 
 	EGIT_REPO_URI="https://github.com/protocolbuffers/protobuf"
 	EGIT_SUBMODULES=()
-fi
-
-DESCRIPTION="Google's Protocol Buffers - Extensible mechanism for serializing structured data"
-HOMEPAGE="https://developers.google.com/protocol-buffers/ https://github.com/protocolbuffers/protobuf"
-if [[ "${PV}" == "9999" ]]; then
 	SRC_URI=""
 else
 	SRC_URI="https://github.com/protocolbuffers/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
+DESCRIPTION="Google's Protocol Buffers - Extensible mechanism for serializing structured data"
+HOMEPAGE="https://developers.google.com/protocol-buffers/ https://github.com/protocolbuffers/protobuf"
+
 LICENSE="BSD"
 SLOT="0/30"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="emacs examples static-libs test zlib"
 RESTRICT="!test? ( test )"
 
